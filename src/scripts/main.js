@@ -18,10 +18,10 @@ function getEmployees(listEl) {
   const items = [...listEl.querySelectorAll('li')];
 
   return items.map((li) => ({
-    name: li.textContent.trim(),
-    position: li.getAttribute('data-position'),
-    salary: parseSalary(li.dataset.salary),
-    age: Number(li.dataset.age),
+    name: li.querySelector('h3').textContent.trim(),
+    position: li.querySelector('p.position').textContent.trim(),
+    salary: parseSalary(li.querySelector('p.salary').textContent),
+    age: Number(li.querySelector('p.age').textContent),
   }));
 }
 
